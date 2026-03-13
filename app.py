@@ -13,6 +13,19 @@ st.set_page_config(page_title="Party Deal Sim", layout="wide")
 st.title("Party Deal Simulation")
 
 FIX_COSTS = 3500
+
+# Fixkosten auf einen Blick + Aufklapper mit Details
+st.markdown(f"**Fixkosten (geschätzt): {FIX_COSTS:,.0f} €**".replace(",", "."))
+with st.expander("Was steckt in den Fixkosten?"):
+    st.markdown("""
+    Grobe Schätzung für die Party, u. a.:
+    - **GEMA**
+    - **Werbung**
+    - **Veranstalter-Haftpflicht**
+    - **Getränke & Essen** (für uns / Team)
+    - **Budget Empfang**
+    """)
+st.divider()
 RENT_DEAL1 = 8000
 DEAL2_SHARE = 0.6
 GUESTS_MAX = 1800
@@ -22,8 +35,8 @@ DEAL3_EXTRA = 2000  # Security (+ ggf. Garderobe) von uns
 entrance_fee = st.slider("Eintrittspreis (€)", 5.0, 35.0, 19.0, 0.5)
 
 # Checkboxen: Deals im Graphen ein-/ausblenden
-show_deal1 = st.checkbox("Standard Deal anzeigen (Miete 8000€, 100% Eintritt – stand ursprünglich im Raum)", value=True)
-show_deal2 = st.checkbox("Door Deal anzeigen (keine Miete, 60% Eintritt für uns - 40% für die Location)", value=True)
+show_deal1 = st.checkbox("Standard Deal anzeigen (Miete 8000€, 100% Eintritt – stand ursprünglich im Raum)", value=False)
+show_deal2 = st.checkbox("Door Deal anzeigen (keine Miete, 60% Eintritt für uns - 40% für die Location)", value=False)
 show_deal3 = st.checkbox("Benefit Deal anzeigen (Miete 4000€ + 2000€ Security selbst, 100% Eintritt – ausgehandelt)", value=True)
 show_scenarios = st.checkbox("Szenarios anzeigen (500 / 900 / 1800 Gäste im Graph)", value=True)
 
