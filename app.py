@@ -3,7 +3,7 @@
 # - Fixed costs (excl. rent): 3500€ | Entrance fee: configurable
 # - Deal 1: 8000€ rent, 100% entrance fees to us
 # - Deal 2: no rent, doordeal:60% entrance fees to us, 40% to venue
-# - Deal 3: special deal, only fee for 4000, 9 security and 6 coat check from us, thats about 350€
+# - Deal 3: special deal, only fee for 4000, security from us 2000€
 
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -17,14 +17,14 @@ RENT_DEAL1 = 8000
 DEAL2_SHARE = 0.6
 GUESTS_MAX = 1800
 DEAL3_FEE = 4000  # Gebühr an Location
-DEAL3_EXTRA = 350  # 9 Security + 6 Garderobe (von uns)
+DEAL3_EXTRA = 2000  # Security (+ ggf. Garderobe) von uns
 
-entrance_fee = st.slider("Eintrittspreis (€)", 5.0, 35.0, 17.0, 0.5)
+entrance_fee = st.slider("Eintrittspreis (€)", 5.0, 35.0, 19.0, 0.5)
 
 # Checkboxen: Deals im Graphen ein-/ausblenden
 show_deal1 = st.checkbox("Standard Deal anzeigen (Miete 8000€, 100% Eintritt – stand ursprünglich im Raum)", value=True)
 show_deal2 = st.checkbox("Door Deal anzeigen (keine Miete, 60% Eintritt für uns - 40% für die Location)", value=True)
-show_deal3 = st.checkbox("Benefit Deal anzeigen (Miete 4000€ + 350€ Security selbst, 100% Eintritt – ausgehandelt)", value=True)
+show_deal3 = st.checkbox("Benefit Deal anzeigen (Miete 4000€ + 2000€ Security selbst, 100% Eintritt – ausgehandelt)", value=True)
 show_scenarios = st.checkbox("Szenarios anzeigen (500 / 900 / 1800 Gäste im Graph)", value=True)
 
 guests = np.arange(0, GUESTS_MAX + 1, 10)
@@ -58,7 +58,7 @@ if show_deal1:
 if show_deal2:
     ax.plot(guests, profit2, label="Door Deal (keine Miete, 60% Eintritt)", color=COLOR_DOOR)
 if show_deal3:
-    ax.plot(guests, profit3, label="Benefit Deal (Gebühr 4000€ + 350€, 100% Eintritt)", color=COLOR_BENEFIT)
+    ax.plot(guests, profit3, label="Benefit Deal (Gebühr 4000€ + 2000€, 100% Eintritt)", color=COLOR_BENEFIT)
 
 # Szenario-Punkte (500, 900, 1800 Gäste) pro Deal – nur wenn aktiviert
 if show_scenarios:
