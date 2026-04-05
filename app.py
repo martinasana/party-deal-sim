@@ -1,6 +1,6 @@
 # Party Deal Simulation — Sonderdeal (fest)
 # - 100 % Eintritt für uns, 4100€ Miete und Security von uns getragen
-# - Fixkosten sind alles an Ausgaben. Unter „Location“: Miete, Security, Strom u. a.
+# - Fixkosten sind alles an Ausgaben. 
 
 import streamlit as st
 
@@ -21,7 +21,7 @@ st.set_page_config(page_title="Party Deal Sim", layout="wide")
 st.title("Party Deal Simulation")
 st.caption("Sonderdeal: 100 % der Eintritte für uns. Miete und Security stecken in den Fixkosten unter „Location“.")
 
-# Fixkosten (Miete, Security u. a. unter „Location“)
+# Fixkosten (Miete, Security, Strom u. a. unter „Location“)
 FIX_BREAKDOWN = {
     "Rechtliches": 1500.0,
     "Location": 7100.0,
