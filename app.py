@@ -1,6 +1,6 @@
 # Party Deal Simulation — Sonderdeal (fest)
-# - 100 % Eintritt für uns
-# - Fixkosten; unter „Location“: Miete, Security u. a.
+# - 100 % Eintritt für uns, 4100€ Miete und Security von uns getragen
+# - Fixkosten sind alles an Ausgaben. Unter „Location“: Miete, Security, Strom u. a.
 
 import streamlit as st
 
@@ -31,7 +31,7 @@ FIX_BREAKDOWN = {
 }
 FIX_COSTS = sum(FIX_BREAKDOWN.values())
 GUESTS_MAX = 1800
-SCENARIOS = [500, 900, 1800]
+SCENARIOS = [600, 900, 1300, 1800]
 
 
 def profit(guests: int, entrance: float) -> float:
